@@ -71,7 +71,7 @@
                 callHandler('wtf', string);
                 console.log(
                     "%c" + string,
-                    'color: #fff; font-size: 20px; padding: 10px; background: #000; border-radius: 3px; line-height: 80px;'
+                    'color: #f; font-size: 20px; line-height: 40px;'
                 );
             }
             return this;
