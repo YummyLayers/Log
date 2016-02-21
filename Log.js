@@ -117,7 +117,7 @@
             return this;
         },
 
-        dirxml: function(object){
+        dirXML: function(object){
             if(!isOffType('dir')) console.dirxml(object);
 
             return this;
