@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log</title>
+</head>
+<script src="Log.js"></script>
+<body>
+<script>
+
+    Log.time('time');
+
+    Log.addHandler(Log.types.WTF, function(message){
+        console.log("handler " + message);
+    });
+
+    Log.d("debug");
+    Log.i("info");
+    Log.w("warn");
+    Log.e("error");
+    Log.wtf("wtf");
+
+    Log.timeStamp('timeStamp');
+
+    // correct expressions
+    Log.assert(1 == 1, "assert 1");
+    Log.assert(1 == 1, "assert 2", true);
+
+    // incorrect expression
+    Log.assert(2 == 1, "assert 3", true);
+
+    Log.count("count");
+    Log.count("count");
+
+    //Log.clear();
+
+    Log.groupCollapsed("groupCollapsed")
+            .d("asd")
+            .i("asd1")
+            .groupEnd();
+
+    var people = [["John", "Smith"], ["Jane", "Doe"], ["Emily", "Jones"]];
+    Log.table(people);
+
+    Log.profile('profile');
+
+    Log.trace('trace');
+
+    Log.profileEnd();
+
+
+    Log.functionTime('functionTime', function(){
+        var array= new Array(1000000);
+        for (var i = array.length - 1; i >= 0; i--) {
+            array[i] = {};
+        }
+    });
+
+
+    Log.timeEnd('time');
+
+</script>
+
+
+</body>
+</html>
