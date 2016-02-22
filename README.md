@@ -17,15 +17,22 @@ Or just download [Log.min.js](https://raw.githubusercontent.com/YummyLayers/Log/
 
 ### Logging
 ```js
-Log.d("Debug message");
+Log.d('Debug message');
 
-Log.i("Info message");
+Log.i('Info message');
 
-Log.w("Warn message");
+Log.w('Warn message');
 
-Log.e("Error message");
+Log.e('Error message');
 
-Log.wtf("WTF message");
+Log.wtf('WTF message');
+
+Log.d('message1', 'message2', 'message3');
+
+Log.d('User %s has %i points', 'John', 1234);
+
+Log.d('%cStyle', 
+    'color: #fff; font-size: 20px; padding: 10px; background: #444; border-radius: 3px; line-height: 80px;');
 ```
 ![Logging in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/logging.png)
 
