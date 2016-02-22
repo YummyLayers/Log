@@ -148,13 +148,13 @@
             return this;
         },
 
-        profileEnd: function(){
-            if(!isOffType('profile')) console.profileEnd();
+        profileEnd: function(label){
+            if(!isOffType('profile')) console.profileEnd(label);
             return this;
         },
 
-        trace: function(object){
-            if(!isOffType('profile')) console.trace(object);
+        trace: function(label){
+            if(!isOffType('profile')) console.trace(label);
             return this;
         },
 
