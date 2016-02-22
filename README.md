@@ -11,7 +11,7 @@ or
 ```html
 <script src="http://dist.yumlay.com/js/log/Log.min.js"></script>
 ```
-Or just download [Log.js](https://raw.githubusercontent.com/YummyLayers/Log/master/Log.min.js) and reference it in your page
+Or just download [Log.min.js](https://raw.githubusercontent.com/YummyLayers/Log/master/Log.min.js) and reference it in your page
 
 ## Usage
 
@@ -51,6 +51,83 @@ Log.w('Warning');
 Log.i('Information');
 ```
 ![Handle in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/handler.png)
+
+
+### Off
+Off logging
+```js
+Log.off(types);
+```
+Example:
+```js
+Log.off(Log.types.DEBUG);
+
+// or
+
+Log.off([Log.types.DEBUG,Log.types.INFO]);
+```
+
+
+### Group
+```js
+Log.group(label);
+
+Log.groupCollapsed(label);
+
+Log.groupEnd();
+
+Log.table(data, filterColumns);
+```
+Example:
+```js
+Log.group('group1')
+    .d('message1')
+    .i('message2')
+    .groupEnd();
+    
+Log.groupCollapsed('group2')
+    .d('message1')
+    .wtf('message2')
+    .groupEnd();
+    
+var people = [["John", "Smith"], ["Jane", "Doe"], ["Emily", "Jones"]];
+Log.table(people);
+```
+![Group in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/group.png)
+
+
+### Time
+```js
+Log.time(label);
+
+// This method adds an event to the Timeline during a recording session
+Log.timeStamp(label); 
+
+Log.timeEnd(label);
+
+Log.functionTime(label, callback);
+```
+Example:
+```js
+Log.time('time1');
+
+var array1 = new Array(2000000);
+for (var i = array1.length - 1; i >= 0; i--) {
+    array1[i] = {};
+}
+
+Log.timeStamp('time1');
+
+Log.functionTime('time2', function(){
+    var array2 = new Array(1000000);
+    for (var i = array2.length - 1; i >= 0; i--) {
+        array2[i] = {};
+    }
+});
+
+Log.timeEnd('time1');
+```
+![Trace in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/time.png)
 
 
 ### Assert
@@ -103,34 +180,6 @@ Log.dirXML(document.body);
 ![Dir in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/dir.png)
 
 
-### Group
-```js
-Log.group(label);
-
-Log.groupCollapsed(label);
-
-Log.groupEnd();
-
-Log.table(data, filterColumns);
-```
-Example:
-```js
-Log.group('group1')
-    .d('message1')
-    .i('message2')
-    .groupEnd();
-    
-Log.groupCollapsed('group2')
-    .d('message1')
-    .wtf('message2')
-    .groupEnd();
-    
-var people = [["John", "Smith"], ["Jane", "Doe"], ["Emily", "Jones"]];
-Log.table(people);
-```
-![Group in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/group.png)
-
-
 ### Profile
 
 Starts recording a performance profile
@@ -175,57 +224,8 @@ example(example2);
 ![Trace in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/trace.png)
 
 
-### Time
-```js
-Log.time(label);
-
-// This method adds an event to the Timeline during a recording session
-Log.timeStamp(label); 
-
-Log.timeEnd(label);
-
-Log.functionTime(label, callback);
-```
-Example:
-```js
-Log.time('time1');
-
-var array1 = new Array(2000000);
-for (var i = array1.length - 1; i >= 0; i--) {
-    array1[i] = {};
-}
-
-Log.timeStamp('time1');
-
-Log.functionTime('time2', function(){
-    var array2 = new Array(1000000);
-    for (var i = array2.length - 1; i >= 0; i--) {
-        array2[i] = {};
-    }
-});
-
-Log.timeEnd('time1');
-```
-![Trace in Google Chrome console](https://raw.githubusercontent.com/YummyLayers/Log/dev/Demo/imgs/time.png)
-
-
 ### Clear
 Clears the console.
 ```js
 Log.clear();
-```
-
-
-### Off
-Off logging
-```js
-Log.off(types);
-```
-Example:
-```js
-Log.off(Log.types.DEBUG);
-
-// or
-
-Log.off([Log.types.DEBUG,Log.types.INFO]);
 ```
