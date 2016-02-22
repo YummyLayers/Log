@@ -2,7 +2,7 @@
  * License: The MIT License (MIT) - Copyright (c) 2016 YummyLayers
  * Date: 21.02.2016
  */
-!function(global){
+!function(global, console){
     'use strict';
 
     var handlers = [];
@@ -71,7 +71,7 @@
                 callHandler('wtf', string);
                 console.log(
                     "%c" + string,
-                    'color: #fff; font-size: 20px; padding: 10px; background: #000; border-radius: 3px; line-height: 80px;'
+                    'color: #f; font-size: 20px; line-height: 40px;'
                 );
             }
             return this;
@@ -117,7 +117,7 @@
             return this;
         },
 
-        dirxml: function(object){
+        dirXML: function(object){
             if(!isOffType('dir')) console.dirxml(object);
 
             return this;
@@ -148,13 +148,13 @@
             return this;
         },
 
-        profileEnd: function(){
-            if(!isOffType('profile')) console.profileEnd();
+        profileEnd: function(label){
+            if(!isOffType('profile')) console.profileEnd(label);
             return this;
         },
 
-        trace: function(object){
-            if(!isOffType('profile')) console.trace(object);
+        trace: function(label){
+            if(!isOffType('profile')) console.trace(label);
             return this;
         },
 
@@ -208,4 +208,4 @@
         global.Log = Log;
     }
 
-}(this);
+}(this, console);
