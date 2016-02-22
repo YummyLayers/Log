@@ -2,7 +2,7 @@
  * License: The MIT License (MIT) - Copyright (c) 2016 YummyLayers
  * Date: 21.02.2016
  */
-!function(global){
+!function(global, console){
     'use strict';
 
     var handlers = [];
@@ -208,4 +208,4 @@
         global.Log = Log;
     }
 
-}(this);
+}(this, console);
